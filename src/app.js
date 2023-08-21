@@ -1,13 +1,32 @@
-// Progression 1: create a consant "NEG_INF" with -1000000 value, and a function createPop
+const arrayOfNumbers = [1, 2, 3, 4, 5, 6];
+const itemToSearch = 9;
+const NEG_INF = -1000000;
+function createPop() {
+  const title = document.createElement('h3');
+  let currIndex = NEG_INF;
+  let check = false;
 
+  function searchForElement() {
+    for (let i = 0; i < arrayOfNumbers.length; i++) {
+      if (arrayOfNumbers[i] === itemToSearch) {
+        currIndex = i;
+        check = true;
+        break;
+      }
+    }
+  }
 
-  // Progression 2: add 3 variables: title, currIndex, check
+  searchForElement();
 
-  // Progression 3: create a function "searchForElement" 
+  return function() {
+    if (check) {
+      return title.textContent = `The item is present and is at index ${currIndex}`;
+      
+    } else {
+      return title.textContent = `The item is not present and is at index ${currIndex}`;
+    }
+  };
+}
 
-  // Progression 4: In `createPop()`, return a function - which uses the updated values of `currIndex` and `check`
-                    // to return the desired output.
-
-const arrayOfNumbers = [1,2,3,4,5,6];
-const itemToSearch = 4;
-
+const popFunction = createPop();
+popFunction();
