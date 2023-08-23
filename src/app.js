@@ -1,7 +1,7 @@
 const arrayOfNumbers = [1, 2, 3, 4, 5, 6];
-const itemToSearch = 9;
+const itemToSearch =4;
 const NEG_INF = -1000000;
-function createPop() {
+function createPop(arrayOfNumbers, itemToSearch) {
   const title = document.createElement('h3');
   let currIndex = NEG_INF;
   let check = false;
@@ -28,5 +28,5 @@ function createPop() {
   };
 }
 
-const popFunction = createPop();
+const popFunction = createPop(arrayOfNumbers, itemToSearch);
 popFunction();
